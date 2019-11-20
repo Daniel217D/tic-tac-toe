@@ -1,6 +1,18 @@
 .field {
 	@extend %container;
 
-	height: 100px;
-	background-color: red;
+	&-row {
+		@extend %row;
+	}
+
+	&-col {
+		@extend %col-4;
+
+		position: relative;
+		padding: 0;
+	}
+
+	&-dummy {
+		margin-top: 100%;
+	}
 }

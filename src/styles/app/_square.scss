@@ -1,0 +1,11 @@
+.square {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: $yellow;
+	border: 2px solid black;
+	border-radius: 15px;
+	box-shadow: -3px -1px 14px -5px black;
+}
