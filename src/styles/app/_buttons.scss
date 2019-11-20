@@ -1,0 +1,30 @@
+.buttons {
+	@extend %container;
+
+	padding-top: 10px;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	margin-bottom: 30px;
+
+	&-btn {
+		display: inline-block;
+		color: $black;
+		background-color: $yellow;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-size: 12px;
+		padding: 10px 30px;
+		border-radius: 5px;
+		border: 1px solid rgba(0,0,0,0.3);
+		border-bottom-width: 3px;
+		cursor: pointer;
+
+		&:hover {
+			border-color: rgba(0,0,0,0.5);
+		}
+
+		&:active {
+			border-color: rgba(0,0,0,0.9);
+		}
+	}
+}
