@@ -30,7 +30,6 @@ squares.forEach((el) => {
         }
 
         if(game_is_active) {
-            game_is_active = false;
             computer_turn();
         }
     })
@@ -85,7 +84,6 @@ function computer_turn() {
     }
 
     move(square);
-    game_is_active = true;
 }
 
 function reset() {
