@@ -3,6 +3,10 @@
 %container {
 	@include make-container();
 	@include make-container-max-widths();
+
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		max-width: 720px !important;
+	}
 }
 
 %container-fluid {
