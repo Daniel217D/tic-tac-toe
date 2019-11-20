@@ -4,8 +4,66 @@
 	left: 10%;
 	width: 80%;
 	height: 80%;
+	padding: 10%;
 	background-color: $yellow;
-	border: 2px solid black;
+	border: 2px solid $black;
 	border-radius: 15px;
-	box-shadow: -3px -1px 14px -5px black;
+	box-shadow: -3px -1px 14px -5px $black;
+	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.05) translateX(5px) translateY(5px);
+	}
+
+	&_cross {
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			left: 50%;
+			display: block;
+			height: 75%;
+			width: 16px;
+			background-color: $red;
+			border-radius: 5px;
+			transform: translateX(-50%);
+			transition: 0.33s;
+		}
+	}
+
+	&_null {
+		&::before {
+			content: "";
+			position: absolute;
+			left: 50%;
+			display: block;
+			height: 75%;
+			width: 0;
+			border: 8px solid $green;
+			border-radius: 5px;
+			transform: translateX(-50%);
+			transition: width 0.33s, border-width 0.5s, border-radius 0.5s;
+		}
+	}
+
+	&_active {
+		&.square_cross {
+			&::after {
+				transform: translateX(-50%) rotate(45deg);
+			}
+
+			&::before {
+				transform: translateX(-50%) rotate(-45deg);
+			}
+		}
+
+		&.square_null {
+			&::before {
+				width: 75%;
+				border-radius: 50%;
+				border-width: 16px;
+				transition: width 0.33s, border-width 0.1s, border-radius 0.1s;
+			}
+		}
+	}
 }
