@@ -10,8 +10,9 @@
 	border-radius: 15px;
 	box-shadow: -3px -1px 14px -5px $black;
 	cursor: pointer;
+	transition: transform 0.15s;
 
-	&:hover {
+	&:not(.square_active):hover {
 		transform: scale(1.05) translateX(5px) translateY(5px);
 	}
 
