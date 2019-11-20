@@ -15,7 +15,8 @@ squares.forEach((el) => {
 
     el.addEventListener("click", function () {
         if (game_is_active && field[number] === undefined) {
-            this.classList.add(classes[sign], classes["active"]);
+            this.classList.add(classes[sign]);
+            setTimeout(() => this.classList.add(classes["active"]));
             field[number] = sign;
             check_win();
             change_sign();
