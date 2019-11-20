@@ -56,18 +56,10 @@ function add_sign(number) {
 
 function computer_turn() {
     let square = getRandomInt(0,8);
-    let stop = 0;
-    console.log(field);
-    console.log("Random: "+square);
 
     if(field[square] !== undefined) {
         const isLeft = getRandomInt(0,1) === 0;
-        console.log("Isleft ", isLeft);
         do {
-            stop++;
-            if(stop >= 10) {
-                throw new Error("pizdec");
-            }
             if(isLeft)
                 square--;
             else
@@ -78,8 +70,6 @@ function computer_turn() {
             } else if(square === -1) {
                 square = 8;
             }
-
-            console.log(square);
         } while (field[square] !== undefined);
     }
 
@@ -116,7 +106,7 @@ function check_win() {
             set_status("lose")
         }
         game_is_active = false;
-    } else if(move === 9) {
+    } else if(moves === 9) {
         set_status("tie");
         game_is_active = false;
     }
