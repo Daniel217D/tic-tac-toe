@@ -1,10 +1,12 @@
+import {getRandomInt} from "./helpers";
+
 let field = Array(9);
 const squares = document.querySelectorAll(".js-square");
 const reset_btn = document.querySelector(".js-reset");
 const status_container = document.querySelector(".js-status");
 let game_is_active = true;
 let sign = "x";
-let turn = 0;
+let moves = 0;
 
 const classes = {
     x: "square_cross",
@@ -24,26 +26,72 @@ squares.forEach((el) => {
 
     el.addEventListener("click", function () {
         if (game_is_active && field[number] === undefined) {
-            turn++;
-            this.classList.add(classes[sign]);
-            setTimeout(() => this.classList.add(classes["active"]));
-            field[number] = sign;
-            check_win();
-            change_sign();
+            move(number);
+        }
+
+        if(game_is_active) {
+            game_is_active = false;
+            computer_turn();
         }
     })
 });
 
 reset_btn.addEventListener("click", reset);
 
+function move(number) {
+    moves++;
+    add_sign(number);
+    check_win();
+    change_sign();
+}
+
 function change_sign() {
     sign = sign === "x" ? "y" : "x";
+}
+
+function add_sign(number) {
+    squares[number].classList.add(classes[sign]);
+    setTimeout(() => squares[number].classList.add(classes["active"]));
+    field[number] = sign;
+}
+
+function computer_turn() {
+    let square = getRandomInt(0,8);
+    let stop = 0;
+    console.log(field);
+    console.log("Random: "+square);
+
+    if(field[square] !== undefined) {
+        const isLeft = getRandomInt(0,1) === 0;
+        console.log("Isleft ", isLeft);
+        do {
+            stop++;
+            if(stop >= 10) {
+                throw new Error("pizdec");
+            }
+            if(isLeft)
+                square--;
+            else
+                square++;
+
+            if(square === 9) {
+                square = 0
+            } else if(square === -1) {
+                square = 8;
+            }
+
+            console.log(square);
+        } while (field[square] !== undefined);
+    }
+
+    move(square);
+    game_is_active = true;
 }
 
 function reset() {
     sign = "x";
     set_status("default");
-    turn = 0;
+    moves = 0;
     field = Array(9);
     squares.forEach((el) => {
         el.classList.remove(classes["x"], classes["y"], classes["active"])
@@ -70,7 +118,7 @@ function check_win() {
             set_status("lose")
         }
         game_is_active = false;
-    } else if(turn === 9) {
+    } else if(move === 9) {
         set_status("tie");
         game_is_active = false;
     }
