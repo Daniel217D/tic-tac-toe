@@ -28,6 +28,7 @@ function change_sign() {
 }
 
 function reset() {
+    sign = "x";
     field = Array(9);
     squares.forEach((el) => {
         el.classList.remove(classes["x"], classes["y"], classes["active"])
