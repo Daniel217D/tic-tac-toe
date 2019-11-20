@@ -27,10 +27,10 @@ squares.forEach((el) => {
     el.addEventListener("click", function () {
         if (game_is_active && field[number] === undefined) {
             move(number);
-        }
-
-        if(game_is_active) {
-            computer_turn();
+            
+            if(game_is_active) {
+                computer_turn();
+            }
         }
     })
 });
