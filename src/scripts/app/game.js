@@ -1,4 +1,5 @@
 import {getRandomInt} from "./helpers";
+import {classes, statuses} from './dictionary';
 
 let field = Array(9);
 const squares = document.querySelectorAll(".js-square");
@@ -7,19 +8,6 @@ const status_container = document.querySelector(".js-status");
 let game_is_active = true;
 let sign = "x";
 let moves = 0;
-
-const classes = {
-    x: "square_cross",
-    y: "square_null",
-    active: "square_active"
-};
-
-const statuses = {
-    default: "Tic Tac Toe",
-    win: "You win",
-    lose: "You lose",
-    tie: "Tie"
-};
 
 squares.forEach((el) => {
     const number = el.getAttribute("data-number");
