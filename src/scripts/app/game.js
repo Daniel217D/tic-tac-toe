@@ -29,10 +29,6 @@ function move(number) {
     moves++;
     add_sign(number);
     check_win();
-    change_sign();
-}
-
-function change_sign() {
     sign = sign === "x" ? "y" : "x";
 }
 
