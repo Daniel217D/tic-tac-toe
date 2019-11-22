@@ -12,10 +12,14 @@
 	cursor: pointer;
 	transition: transform 0.15s;
 
-	&:not(.square_active):hover {
+	&:hover {
 		transform: scale(1.05) translateX(5px) translateY(5px);
 	}
 
+	.field_disabled & {
+		transform: unset;
+	}
+	
 	&_cross {
 		&::after,
 		&::before {
@@ -48,6 +52,10 @@
 	}
 
 	&_active {
+		&:hover {
+			transform: unset;
+		}
+
 		&.square_cross {
 			&::after {
 				transform: translateX(-50%) rotate(45deg);

@@ -2,6 +2,7 @@ export const classes = {
     x: "square_cross",
     y: "square_null",
     square_animation: "square_active",
+    field_disabled: "field_disabled"
 };
 
 export const statuses = {

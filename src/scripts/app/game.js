@@ -94,9 +94,9 @@ function check_win() {
 function setStaus(status) {
   game_is_active = status;
 
-  if(status) {
+  if(!status) {
     field_el.classList.add(classes["field_disabled"]);
   } else {
-    field_el.classList.add(classes["field_disabled"]);
+    field_el.classList.remove(classes["field_disabled"]);
   }
 }
