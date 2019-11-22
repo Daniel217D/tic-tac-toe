@@ -13,7 +13,7 @@
 	transition: transform 0.15s;
 
 	&:hover {
-		transform: scale(1.05) translateX(5px) translateY(5px);
+		transform: scale(1.05);
 	}
 
 	.field_disabled & {
