@@ -1,6 +1,7 @@
 .buttons {
 	@extend %container;
 
+	display: flex;
 	padding-top: 10px;
 	padding-left: 2.5%;
 	padding-right: 2.5%;
@@ -14,6 +15,7 @@
 		letter-spacing: 2px;
 		font-size: 12px;
 		padding: 10px 30px;
+		margin: 0 5px;
 		border-radius: 5px;
 		border: 1px solid rgba(0,0,0,0.3);
 		border-bottom-width: 3px;
@@ -24,6 +26,8 @@
 		}
 
 		&:active {
+			padding-top: 12px;
+			padding-bottom: 8px;
 			border-color: rgba(0,0,0,0.9);
 		}
 	}
