@@ -1,7 +1,7 @@
 export const classes = {
     x: "square_cross",
     y: "square_null",
-    active: "square_active"
+    square_animation: "square_active",
 };
 
 export const statuses = {

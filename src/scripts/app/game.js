@@ -89,3 +89,12 @@ function check_win() {
         game_is_active = false;
     }
 }
+
+function setStaus(status) {
+  game_is_active = status;
+  if(status) {
+    field.classList.add(classes["field_disabled"]);
+  } else {
+
+  }
+}
