@@ -66,7 +66,8 @@ function reset() {
     moves = 0;
     field = Array(9);
     squares.forEach((el) => {
-        el.classList.remove(classes["x"], classes["y"], classes["active"])
+        el.classList.remove(classes["active"])
+        setTimeout(() => el.classList.remove(classes["x"], classes["y"]), 250 )
     });
     game_is_active = true;
 }
