@@ -82,11 +82,7 @@ function check_win() {
         field[2] === sign && field[5] === sign && field[8] === sign ||
         field[0] === sign && field[4] === sign && field[8] === sign ||
         field[2] === sign && field[4] === sign && field[6] === sign) {
-        if(sign === "x") {
-            set_status("win")
-        } else {
-            set_status("lose")
-        }
+        set_status(sign.toUpperCase() + " win");
         game_is_active = false;
     } else if(moves === 9) {
         set_status("tie");
