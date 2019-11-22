@@ -17,9 +17,10 @@
 	}
 
 	.field_disabled & {
-		transform: unset;
+		transform: unset !important;
+		cursor: default;
 	}
-	
+
 	&_cross {
 		&::after,
 		&::before {
