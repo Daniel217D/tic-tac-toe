@@ -1,10 +1,10 @@
 import {getRandomInt} from "./helpers";
-import {classes, statuses} from './dictionary';
+import {classes} from './dictionary';
+import {set_status} from './status';
 
 let field = Array(9);
 const squares = document.querySelectorAll(".js-square");
 const reset_btn = document.querySelector(".js-reset");
-const status_container = document.querySelector(".js-status");
 let game_is_active = true;
 let sign = "x";
 let moves = 0;
@@ -15,7 +15,7 @@ squares.forEach((el) => {
     el.addEventListener("click", function () {
         if (game_is_active && field[number] === undefined) {
             move(number);
-            
+
             if(game_is_active) {
                 computer_turn();
             }
@@ -71,9 +71,6 @@ function reset() {
     game_is_active = true;
 }
 
-function set_status(status) {
-    status_container.innerText = statuses[status];
-}
 
 function check_win() {
     if (field[0] === sign && field[1] === sign && field[2] === sign ||
