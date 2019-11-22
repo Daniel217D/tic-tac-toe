@@ -3,8 +3,9 @@ import {classes} from './dictionary';
 import {set_status} from './status';
 
 let field = Array(9);
-const squares = document.querySelectorAll(".js-square");
-const reset_btn = document.querySelector(".js-reset");
+const field_el = document.body.querySelector(".js-field");
+const squares = field_el.querySelectorAll(".js-square");
+const reset_btn = field_el.querySelector(".js-reset");
 let game_is_active = true;
 let sign = "x";
 let moves = 0;
@@ -34,7 +35,7 @@ function move(number) {
 
 function add_sign(number) {
     squares[number].classList.add(classes[sign]);
-    setTimeout(() => squares[number].classList.add(classes["active"]));
+    setTimeout(() => squares[number].classList.add(classes["square_animation"]));
     field[number] = sign;
 }
 
@@ -66,10 +67,10 @@ function reset() {
     moves = 0;
     field = Array(9);
     squares.forEach((el) => {
-        el.classList.remove(classes["active"])
+        el.classList.remove(classes["square_animation"])
         setTimeout(() => el.classList.remove(classes["x"], classes["y"]), 250 )
     });
-    game_is_active = true;
+    setStaus(true);
 }
 
 
@@ -83,18 +84,19 @@ function check_win() {
         field[0] === sign && field[4] === sign && field[8] === sign ||
         field[2] === sign && field[4] === sign && field[6] === sign) {
         set_status(sign.toUpperCase() + " win");
-        game_is_active = false;
+        setStaus(false);
     } else if(moves === 9) {
         set_status("tie");
-        game_is_active = false;
+        setStaus(false);
     }
 }
 
 function setStaus(status) {
   game_is_active = status;
-  if(status) {
-    field.classList.add(classes["field_disabled"]);
-  } else {
 
+  if(status) {
+    field_el.classList.add(classes["field_disabled"]);
+  } else {
+    field_el.classList.add(classes["field_disabled"]);
   }
 }
