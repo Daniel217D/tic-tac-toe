@@ -5,7 +5,7 @@ import {set_status} from './status';
 let field = Array(9);
 const field_el = document.body.querySelector(".js-field");
 const squares = field_el.querySelectorAll(".js-square");
-const reset_btn = field_el.querySelector(".js-reset");
+const reset_btn = document.querySelector(".js-reset");
 let game_is_active = true;
 let sign = "x";
 let moves = 0;
